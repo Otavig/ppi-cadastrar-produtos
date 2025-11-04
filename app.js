@@ -277,8 +277,8 @@ app.get("/pagina-visualizar-produtos", (req, res) => {
 });
 
 // Middleware para levar para a pagina princpal sempre
-app.use((req, res) => {
-    res.redirect('/');
-});
+// app.use((req, res) => {
+//     res.redirect('/');
+// });
 
 app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}/ !!!`));
