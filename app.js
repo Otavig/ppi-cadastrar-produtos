@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const produtos = [];
 
@@ -150,6 +150,10 @@ const paginaCadastrarProduto =
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send(paginaCadastrarProduto);
+});
+
 app.post("/cadastrar-produto", (req, res) => {
     const { nome, descricao, preco, quantidade, dataFabricacao, dataValidade } = req.body;
 
@@ -274,7 +278,7 @@ app.get("/pagina-visualizar-produtos", (req, res) => {
 
 // Middleware para levar para a pagina princpal sempre
 app.use((req, res) => {
-    res.send(paginaCadastrarProduto);
+    res.redirect('/');
 });
 
 app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}/ !!!`));
