@@ -9,6 +9,9 @@
     "dev": "node --watch ./app.js",
     "start": "node app.js"
   },
+  "dependencies": {
+    "express": "^4.18.0"
+  },
   "keywords": [],
   "author": "Otávio Garcia dos Santos",
   "license": "ISC"
